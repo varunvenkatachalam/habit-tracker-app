@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const habitController = require('../controllers/habitController');
+const { getHabits, createHabit } = require('../controller/habitController');
 
-router.get('/', habitController.getHabits);
-router.post('/', habitController.createHabit);
-router.delete('/:id', habitController.deleteHabit);
+router.get('/', getHabits);
+router.post('/', createHabit);
 
 module.exports = router;

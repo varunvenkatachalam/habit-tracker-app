@@ -1,16 +1,19 @@
 const mongoose = require('mongoose');
 
 const habitSchema = new mongoose.Schema({
-  title: {
+  name: {
     type: String,
-    required: true,
+    required: [true, 'Please add a habit name'],
   },
   frequency: {
     type: String,
-    enum: ['Daily', 'Weekly', 'Monthly'],
-    default: 'Daily',
+    enum: ['daily', 'weekly', 'monthly'],
+    default: 'daily',
   },
-  completedDates: [Date],
+  completed: {
+    type: Boolean,
+    default: false,
+  },
   createdAt: {
     type: Date,
     default: Date.now,

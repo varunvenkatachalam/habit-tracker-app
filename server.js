@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const connectDB = require('./config/db');
-const errorHandler = require('./middlewares/errorHandler');
+const errorHandler = require('./middleWare/errorHandler');
 const habitRoutes = require('./routes/habitRoutes');
 const morgan = require('morgan');
 const helmet = require('helmet');
@@ -15,6 +15,9 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'));
 
+app.get('/',(req,res)=>{
+    res.send('welcome to the app.');
+});
 // Routes
 app.use('/api/habits', habitRoutes);
 
